@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* custom-button-style */
+.custom-button-style {
+  border: 1px solid #04967c;
+  background-color: #04967c;
+  border-radius: 15px;
+  color: white;
+  padding: 8px 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-button-style:hover {
+  background-color: #047a63;
+}
+
+/* modal navbar style */
+.modal-nav {
+  border-radius: 10px 10px 0px 0px;
+  background: #04967c;
+}
+
+.file-upload-wrapper label {
+  border: dashed 2px #9f9898 !important;
+}
+.delete-icon {
+  color: #e74d3cf4;
+  cursor: pointer;
+}
+.info-icon {
+  color: #04967c;
+  cursor: pointer;
+}
+.cancel-button {
+  border: 1px solid #e74d3cf4;
+  background-color: #e74d3cf4;
+}
+.cancel-button:hover {
+  background-color: #ca4435;
+}
+
+.login-heading {
+  color: #04967c;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Roboto;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.green-bg-color {
+  border-radius: 10px 0px 0px 10px;
+  background: #04967c;
+}
+.welcome-back-text {
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Roboto;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.sign-in-btn-layout {
+  display: flex;
+  width: 190px;
+  height: 48px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 1px solid #fff;
+  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.keep-in-touch-text {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.left {
+  border-radius: 10px 0px 0px 10px;
+  background: #04967c;
+}
+
+.background-circle-svg {
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='270' height='279' viewBox='0 0 270 279' fill='none'><path opacity='0.7' d='M269.5 97.5C269.5 197.74 182.867 279 76 279C-30.8671 279 -117.5 197.74 -117.5 97.5C-117.5 -2.73969 -30.8671 -84 76 -84C182.867 -84 269.5 -2.73969 269.5 97.5Z' fill='%23FFFCB3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 270px 279px;
+}
+
+li {
+  position: relative;
+}
+
+li.active {
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity, 1));
+}
+li.active span {
+  color: white;
+}
+li.active::after {
+  content: "";
+  background: #00d0ff;
+  height: 100%;
+  width: 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .left {
+    display: none;
+  }
+  .login-link {
+    display: initial;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .login-link {
+    display: none;
+    text-decoration: none;
+  }
+}
