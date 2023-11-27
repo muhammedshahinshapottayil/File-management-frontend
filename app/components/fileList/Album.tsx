@@ -52,16 +52,18 @@ const AlbumCarousel = ({
     <div className="mt-0.5 p-1 flex justify-center w-screen md:w-1/2 items-center">
       <div className="relative w-full">
         <div className="carousel">
-          <button
-            type="button"
-            onClick={() => previousImage()}
-            className={`${arrowStyle} left-2`}
-            style={{ top: "40%", zIndex: 0 }}
-          >
-            <span role="img" aria-label="Arrow left">
-              <div className="arrows prev"></div>
-            </span>
-          </button>
+          {files.length > 1 && (
+            <button
+              type="button"
+              onClick={() => previousImage()}
+              className={`${arrowStyle} left-2`}
+              style={{ top: "40%", zIndex: 0 }}
+            >
+              <span role="img" aria-label="Arrow left">
+                <div className="arrows prev"></div>
+              </span>
+            </button>
+          )}
           <div className="w-[258px] h-[300px] overflow-hidden">
             {files.map((img: Gallery["data"], i: number) => (
               <div className=" flex-shrink-0" ref={refs[i]} key={img._id}>
@@ -84,16 +86,18 @@ const AlbumCarousel = ({
               </div>
             ))}
           </div>
-          <button
-            type="button"
-            onClick={() => nextImage()}
-            className={`${arrowStyle} left-52`}
-            style={{ top: "40%", zIndex: 0 }}
-          >
-            <span role="img" aria-label="Arrow right">
-              <div className="arrows next"></div>
-            </span>
-          </button>
+          {files.length > 1 && (
+            <button
+              type="button"
+              onClick={() => nextImage()}
+              className={`${arrowStyle} left-52`}
+              style={{ top: "40%", zIndex: 0 }}
+            >
+              <span role="img" aria-label="Arrow right">
+                <div className="arrows next"></div>
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </div>
