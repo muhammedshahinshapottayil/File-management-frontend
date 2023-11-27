@@ -74,7 +74,7 @@ export default function Signup() {
     } finally {
       setTimeout(() => {
         setIsLoading(false);
-      }, 1500);
+      }, 2000);
       reset();
     }
   };
