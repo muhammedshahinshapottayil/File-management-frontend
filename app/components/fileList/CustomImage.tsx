@@ -19,7 +19,7 @@ export default function CustomImage({
     <>
       <div className="w-full h-[258px] p-2.5 rounded-[5px] shadow border border-stone-300">
         <Image
-          className="w-full h-full mx-auto"
+          className="w-full h-[258px] object-contain"
           src={file}
           height={100}
           width={100}

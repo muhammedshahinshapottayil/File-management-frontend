@@ -10,6 +10,7 @@ import { Button } from "../button";
 import { useParams } from "next/navigation";
 import { Spinner } from "../Spinner";
 import AlbumCarousel from "../fileList/Album";
+import Link from "next/link";
 
 export default function Home({ isAlbum }: { isAlbum: boolean }) {
   const [data, setdata] = useState<Gallery["data"][]>([]);
@@ -32,8 +33,9 @@ export default function Home({ isAlbum }: { isAlbum: boolean }) {
       setdata(response.data);
     } catch (error) {
       errorToast(error);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -50,9 +52,21 @@ export default function Home({ isAlbum }: { isAlbum: boolean }) {
         <Spinner />
       ) : (
         <div>
-          <h1 className="text-3xl font-extrabold text-blue-700 text-center my-4">
-            {name}
-          </h1>
+          {!isAlbum && (
+            <div className="flex items-center justify-between m-2">
+              <h1></h1>
+              <h1 className="text-2xl text-center font-semibold text-blue-700 m-0 p-0">
+                {name}
+              </h1>
+              <Link
+                href="/pages/user/dashboard"
+                className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              >
+                <span>&larr; Back</span>
+              </Link>
+            </div>
+          )}
+
           <div className="fixed bottom-0 right-0 m-2 z-1">
             <CustomModal
               Button={() => (

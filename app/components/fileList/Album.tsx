@@ -1,7 +1,6 @@
 import { Gallery } from "@/types";
 import { useState, createRef, RefObject } from "react";
 import { Details } from "../details";
-import Image from "next/image";
 import Link from "next/link";
 
 const AlbumCarousel = ({
@@ -48,19 +47,19 @@ const AlbumCarousel = ({
   };
 
   const arrowStyle =
-    "absolute text-white text-2xl z-10 bg-black h-10 w-10 rounded-full opacity-75 flex items-center justify-center";
+    "absolute  text-2xl z-10  h-10 w-10 rounded-full opacity-75 flex items-center justify-center";
   return (
-    <div className="p-1 flex justify-center w-screen md:w-1/2 items-center">
+    <div className="mt-0.5 p-1 flex justify-center w-screen md:w-1/2 items-center">
       <div className="relative w-full">
         <div className="carousel">
           <button
             type="button"
             onClick={() => previousImage()}
             className={`${arrowStyle} left-2`}
-            style={{ top: "40%",zIndex: 0 }}
+            style={{ top: "40%", zIndex: 0 }}
           >
             <span role="img" aria-label="Arrow left">
-              ◀
+              <div className="arrows prev"></div>
             </span>
           </button>
           <div className="w-[258px] h-[300px] overflow-hidden">
@@ -92,7 +91,7 @@ const AlbumCarousel = ({
             style={{ top: "40%", zIndex: 0 }}
           >
             <span role="img" aria-label="Arrow right">
-              ▶
+              <div className="arrows next"></div>
             </span>
           </button>
         </div>

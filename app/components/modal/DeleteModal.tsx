@@ -37,7 +37,7 @@ export default function DeleteModal({
         onCancel={() => console.log("Delete canceled")}
       />,
       {
-        autoClose: 2000,
+        autoClose: 4000,
       }
     );
   };
