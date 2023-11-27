@@ -1,12 +1,12 @@
 import getFormattedDate from "@/lib/getFormattedDate";
-import { Album } from "@/types";
+import { Gallery } from "@/types";
 import Image from "next/image";
 export default function ModalDetails({
   file,
   fileName,
   name,
   date,
-}: Album["data"]) {
+}: Gallery["data"]) {
   return (
     <div className="flex flex-col items-center p-8">
       <Image
