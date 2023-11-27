@@ -72,8 +72,10 @@ export default function Signup() {
     } catch (error: any) {
       errorToast(error);
     } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
       reset();
-      setIsLoading(false);
     }
   };
 
