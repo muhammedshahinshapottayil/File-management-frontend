@@ -1,14 +1,13 @@
 "use client";
 import { FileUploader } from "react-drag-drop-files";
 type Props = {
-  handleChange: (file: File) => void;
-  multiple: boolean;
+  handleChange: (file: FileList) => void;
 };
-function DragDrop({ handleChange, multiple }: Props) {
+function DragDrop({ handleChange }: Props) {
   return (
     <div className="file-upload-wrapper">
       <FileUploader
-        multiple={multiple}
+        multiple={true}
         handleChange={handleChange}
         name="file"
         maxSize={10}

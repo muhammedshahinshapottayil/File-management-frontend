@@ -8,7 +8,8 @@ type InputProps = Omit<
 
 export default function PasswordInput({ ...rest }: InputProps) {
   const [state, setState] = useState<boolean>(false);
-  const handleTogglePassword = () => {
+  const handleTogglePassword = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     setState(!state);
   };
 
@@ -19,12 +20,12 @@ export default function PasswordInput({ ...rest }: InputProps) {
         type={state ? "text" : "password"}
         className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500"
       />
-      <p
-        onClick={handleTogglePassword}
+      <button
+        onClick={(e) => handleTogglePassword(e)}
         className="absolute right-4 top-2 text-gray-500 cursor-pointer"
       >
         {state ? "Hide" : "Show"}
-      </p>
+      </button>
     </div>
   );
 }

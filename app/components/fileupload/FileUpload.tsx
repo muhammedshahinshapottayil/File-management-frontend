@@ -20,7 +20,7 @@ export default function FileUpload({
   const [files, setFile] = useState<FileType | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleFileSelect = (file: FileList | File) => {
+  const handleFileSelect = (file: FileList) => {
     setFile(file);
   };
 
@@ -28,7 +28,7 @@ export default function FileUpload({
     try {
       if (files != null && name != "") {
         setIsLoading(true);
-        await postAlbumThumbnail(files, name, isThumbnail);
+        await postAlbumThumbnail(files, name, isThumbnail, albumId);
         clearAll();
         onLoad();
         notify("Successfully Completed");
@@ -44,22 +44,27 @@ export default function FileUpload({
     setFile(null);
   };
   return (
-    <div className="flex flex-col space-y-4">
-      {isLoading && <Spinner />}
-      {isThumbnail && (
-        <Input
-          value={name}
-          onChange={(e: EventChange) => setName(e.target.value)}
-          placeholder="Album Name"
-        />
-      )}
-      <DragDrop multiple={!isThumbnail} handleChange={handleFileSelect} />
-      <center>
-        <div className="space-x-4">
-          <Button onClick={onSubmit}>Submit</Button>
-          <CancelButton onClick={clearAll}>Clear</CancelButton>
+    <div >
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="flex flex-col space-y-4" >
+          {isThumbnail && (
+            <Input
+              value={name}
+              onChange={(e: EventChange) => setName(e.target.value)}
+              placeholder="Album Name"
+            />
+          )}
+          <DragDrop handleChange={handleFileSelect} />
+          <center>
+            <div className="space-x-4">
+              <Button onClick={onSubmit}>Submit</Button>
+              <CancelButton onClick={clearAll}>Clear</CancelButton>
+            </div>
+          </center>
         </div>
-      </center>
+      )}
     </div>
   );
 }

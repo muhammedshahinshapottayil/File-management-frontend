@@ -123,6 +123,14 @@ li.active::after {
   left: 0;
   top: 0;
 }
+.carousel {
+  display: inline-flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
 @media only screen and (max-width: 600px) {
   .left {

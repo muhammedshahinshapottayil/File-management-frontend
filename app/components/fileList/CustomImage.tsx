@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Details } from "../details";
-import { Album } from "@/types";
-import Link from "next/link";
+import { Gallery } from "@/types";
 
 export default function CustomImage({
   file,
@@ -10,31 +9,23 @@ export default function CustomImage({
   albumId,
   _id: id,
   ...rest
-}: Album & { isAlbum: boolean; onLoad: () => void; albumId: string }) {
+}: Gallery["data"] & {
+  isAlbum: boolean;
+  onLoad: () => void;
+  albumId: string;
+}) {
+  const files: any = file;
   return (
-    <div>
+    <>
       <div className="w-full h-[258px] p-2.5 rounded-[5px] shadow border border-stone-300">
-        {!isAlbum ? (
-          <Image
-            className="w-full h-full mx-auto"
-            src={file}
-            height={100}
-            width={100}
-            alt={"This image is currently unavailable"}
-            priority={true}
-          />
-        ) : (
-          <Link href={`/pages/user/gallery/${id}`}>
-            <Image
-              className="w-full h-full mx-auto"
-              src={file}
-              height={100}
-              width={100}
-              alt={"This image is currently unavailable"}
-              priority={true}
-            />
-          </Link>
-        )}
+        <Image
+          className="w-full h-full mx-auto"
+          src={file}
+          height={100}
+          width={100}
+          alt={"This image is currently unavailable"}
+          priority={true}
+        />
       </div>
       <Details
         onLoad={onLoad}
@@ -44,6 +35,6 @@ export default function CustomImage({
         id={albumId}
         {...rest}
       />
-    </div>
+    </>
   );
 }

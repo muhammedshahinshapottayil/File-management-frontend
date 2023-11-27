@@ -6,10 +6,12 @@ export default function ModalDetails({
   fileName,
   name,
   date,
-}: Album) {
+}: Album["data"]) {
   return (
     <div className="flex flex-col items-center p-8">
       <Image
+        width={100}
+        height={100}
         src={file}
         alt={fileName}
         className="w-fit h-48 rounded-full mb-4"

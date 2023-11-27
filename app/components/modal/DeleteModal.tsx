@@ -17,6 +17,7 @@ export default function DeleteModal({
   isAlbum: boolean;
 }) {
   const handleDelete = () => {
+    toast.dismiss();
     const deleteImage = async () => {
       try {
         await deleteFile(albumId, isAlbum, id);
@@ -36,7 +37,7 @@ export default function DeleteModal({
         onCancel={() => console.log("Delete canceled")}
       />,
       {
-        autoClose: false,
+        autoClose: 2000,
       }
     );
   };

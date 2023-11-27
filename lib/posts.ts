@@ -4,12 +4,13 @@ import { SubmitHandler } from "react-hook-form";
 const postAlbumThumbnail = async (
   files: FileType,
   name: string,
-  isThumbnail: boolean
+  isThumbnail: boolean,
+  albumId?: string
 ) => {
   const formData = new FormData();
+  if (isThumbnail && name && albumId) formData.append("albumId", albumId);
   formData.append("name", name);
-  if (files instanceof File) formData.append("file", files);
-  else if (files instanceof FileList)
+  if (files instanceof FileList)
     for (const key in files)
       if (Object.prototype.hasOwnProperty.call(files, key))
         formData.append("file", files[key]);

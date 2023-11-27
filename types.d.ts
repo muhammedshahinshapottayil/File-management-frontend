@@ -8,7 +8,7 @@ type stringChildtypeType = {
   children: string;
 };
 
-type FileType = FileList | File | null;
+type FileType = FileList | null;
 
 type FormDataSignup = {
   username: string;
@@ -19,10 +19,16 @@ type FormDataSignIn = {
   username: string;
   password: string;
 };
-type Album = {
+type AlbumType = {
   name: string;
   file: string;
   fileName: string;
-  date: string; // You might want to use Date type here if you are working with Date objects
+  date: string;
   _id: string;
 };
+interface Gallery {
+  data: AlbumType;
+  albumName: string;
+}
+
+
