@@ -55,12 +55,12 @@ export default function Home({ isAlbum }: { isAlbum: boolean }) {
           {!isAlbum && (
             <div className="flex items-center justify-between m-2">
               <h1></h1>
-              <h1 className="text-2xl text-center font-semibold text-blue-700 m-0 p-0">
+              <h1 className="text-2xl text-center font-semibold text-teal-500 m-0 p-0">
                 {name}
               </h1>
               <Link
                 href="/pages/user/dashboard"
-                className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded"
               >
                 <span>&larr; Back</span>
               </Link>
@@ -103,7 +103,7 @@ export default function Home({ isAlbum }: { isAlbum: boolean }) {
               ))}
             </div>
           ) : (
-            <p className="text-center text-gray-500 font-bold">
+            <p className="text-center mr-20 text-gray-500 font-bold">
               No data available.
             </p>
           )}
